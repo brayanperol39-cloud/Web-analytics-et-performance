@@ -23,7 +23,7 @@ body {
 
 /* Frame 1: Hero Section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image/maquette_sans_texte.jpg');
     background-size: cover;
     background-position: center;
     color: white;
