@@ -908,7 +908,7 @@
         email:   document.getElementById('email').value,
         sujet:   document.getElementById('subject').value,
         message: document.getElementById('message').value,
-        date:    new Date().toLocaleString('fr-FR')
+        date:    new Date().toISOString().split('T')[0]
       };
  
       try {
