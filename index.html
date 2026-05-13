@@ -724,7 +724,7 @@
               </div>
               <div class="form-group">
                 <label for="fb-email">Adresse email</label>
-                <input type="email" id="fb-email" placeholder="marie.dupont@email.fr" />
+                <input type="email" id="fb-email" placeholder="mbetisman@gmail.com" />
               </div>
               <div class="form-group">
                 <label for="fb-profil">Vous êtes…</label>
@@ -876,19 +876,41 @@
     });
  
     // ── FREEBIE FORM ──
-    function handleFreebieSubmit() {
-      const prenom = document.getElementById('fb-prenom').value.trim();
-      const email  = document.getElementById('fb-email').value.trim();
-      const rgpd   = document.getElementById('fb-rgpd').checked;
- 
-      if (!prenom) { alert('Veuillez saisir votre prénom.'); return; }
-      if (!email || !email.includes('@')) { alert('Veuillez saisir un email valide.'); return; }
-      if (!rgpd)  { alert('Veuillez accepter la politique de confidentialité.'); return; }
- 
-      document.getElementById('freebie-form-wrap').style.display = 'none';
-      const s = document.getElementById('freebie-success');
-      s.style.display = 'block';
+    // ── FREEBIE FORM ──
+function handleFreebieSubmit() {
+    const prenom = document.getElementById('fb-prenom').value.trim();
+    const email = document.getElementById('fb-email').value.trim();
+    const rgpd = document.getElementById('fb-rgpd').checked;
+
+    if (!prenom) {
+        alert('Veuillez saisir votre prénom.');
+        return;
     }
+    if (!email || !email.includes('@')) {
+        alert('Veuillez saisir un email valide.');
+        return;
+    }
+    if (!rgpd) {
+        alert('Veuillez accepter la politique de confidentialité.');
+        return;
+    }
+
+    // 1. Masquer le formulaire et afficher le message de succès
+    document.getElementById('freebie-form-wrap').style.display = 'none';
+    const s = document.getElementById('freebie-success');
+    s.style.display = 'block';
+
+    // 2. Déclencher le téléchargement automatique du PDF
+    // REMPLACEZ 'VOTRE_LIEN_URL_ICI' par l'adresse réelle de votre fichier PDF
+    const pdfUrl = 'VOTRE_LIEN_URL_ICI/VitalStep_Guide_Sante_28pages.pdf';
+    
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'VitalStep_Guide_Sante_28pages.pdf'; // Nom du fichier lors du téléchargement
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
  
     // ── CONTACT FORM → MAKE WEBHOOK ──
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
